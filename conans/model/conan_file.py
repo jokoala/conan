@@ -23,6 +23,8 @@ def create_options(conanfile):
         if default_options:
             if isinstance(default_options, (list, tuple)):
                 default_values = OptionsValues(default_options)
+            elif isinstance(default_options, dict):
+                default_values = OptionsValues(default_options.items())
             elif isinstance(default_options, str):
                 default_values = OptionsValues.loads(default_options)
             else:
